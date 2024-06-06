@@ -1,0 +1,40 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "cypress:open": "cypress open"
+  },
+  "dependencies": {
+    "-": "^0.0.1",
+    "@auth0/nextjs-auth0": "^3.5.0",
+    "@phosphor-icons/react": "^2.0.15",
+    "auth0": "^4.3.1",
+    "chart.js": "^4.4.2",
+    "cypress-file-upload": "^5.0.8",
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "sass": "^1.71.1",
+    "save": "^2.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "cypress": "^13.7.1",
+    "cypress-file-upload": "^5.0.8",
+    "typescript": "^5"
+  },
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

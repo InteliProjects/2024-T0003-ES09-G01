@@ -1,0 +1,19 @@
+.button {
+  background-color: var(--primary);
+  border: none;
+  color: var(--white)!important;
+  padding: 1.2rem 3.2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0.4rem 0.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #4bb972;
+  }
+}

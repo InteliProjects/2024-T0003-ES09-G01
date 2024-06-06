@@ -1,0 +1,57 @@
+services:
+  postgres-db:
+    image: postgres
+    networks:
+      - custom_network
+    container_name: postgres-db
+    environment:
+      POSTGRES_USERNAME: docker
+      POSTGRES_PASSWORD: docker
+    ports:
+      - "5432:5432"
+    restart: always
+    env_file:
+      - .env
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    networks:
+      - custom_network
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    restart: always
+
+  prometheus:
+    image: prom/prometheus
+    network_mode: "host"
+    container_name: prometheus
+    volumes:
+      - ./prometheus:/etc/prometheus
+      
+  grafana:
+    image: grafana/grafana
+    network_mode: "host"
+    container_name: grafana
+
+  nestjs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nestjs-app:latest
+    networks:
+      - custom_network
+    container_name: backend
+    ports:
+      - "3001:3001"
+    depends_on:
+      - rabbitmq
+      - postgres-db
+    command: ["sh", "-c", "sleep 30 && npm run start:dev"]
+    env_file:
+      - .env
+
+networks:
+  custom_network:
+    driver: bridge
